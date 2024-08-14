@@ -8,8 +8,8 @@ import NavbarToggle from 'react-bootstrap/NavbarToggle';
 function BasicExample() {
   const noBorders = { border: 'none' };
   return (
-    <Navbar collapseOnSelect expand="sm" className="bg-body-tertiary">
-      <Container>
+    <Navbar collapseOnSelect expand="sm">
+      <Container className="flex align-middle">
         <Navbar.Brand href="#home">ANDY DART</Navbar.Brand>
         <Navbar.Toggle style={noBorders} aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

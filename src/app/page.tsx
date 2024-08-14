@@ -8,8 +8,8 @@ export default function Home() {
       <Image
         src={pic_1_background}
         alt="background"
-        style={{ height: '100vh', width: '100wh' }}
-        className="object-cover sm:object-fill"
+        style={{ height: '100vh', width: '100%' }}
+        className="object-cover sm:object-none"
       ></Image>
     </main>
   );
