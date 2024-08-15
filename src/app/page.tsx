@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import pic_1_background from '../../public/pic_1_background.jpg';
 
 export default function Home() {
