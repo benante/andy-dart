@@ -21,7 +21,7 @@ function FormMessage() {
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       {/* name */}
-      <Row className="mb-3">
+      <Row className="mb-3 bg-slate-600">
         <Form.Group as={Col} md="6" controlId="validationCustom01">
           <Form.Label>Your name</Form.Label>
           <Form.Control
@@ -34,7 +34,7 @@ function FormMessage() {
       </Row>
       {/* email */}
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Your emil address</Form.Label>
+        <Form.Label>Your email address</Form.Label>
         <Form.Control required type="email" placeholder="Enter your email" />
       </Form.Group>
       {/* message */}
