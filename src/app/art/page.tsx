@@ -1,17 +1,12 @@
 import React from 'react';
 import imglist from '../../../public/gallery/imglist';
-import Image from 'next/image';
+import Card from '../components/Card';
 
 const Art = () => {
   return (
-    <div className="grid justify-items-center grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6  gap-1">
+    <div className="grid mx-2 justify-items-center grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2">
       {imglist.map((img) => (
-        <Image
-          className="w-96 h-96 object-cover"
-          alt={img.alt}
-          src={img.src}
-          key={img.id}
-        ></Image>
+        <Card img={img} key={img.id}></Card>
       ))}
     </div>
   );
