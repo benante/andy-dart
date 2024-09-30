@@ -9,10 +9,10 @@ function NavigationBar() {
   const noBorders = { border: 'none' };
   return (
     <Navbar collapseOnSelect expand="sm">
-      <Container className="flex align-middle">
+      <Container className="flex align-middle centerOverride">
         <Navbar.Brand href="/">ANDY DART</Navbar.Brand>
         <Navbar.Toggle style={noBorders} aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse className="grow-0" id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="about">About</Nav.Link>
             <Nav.Link href="art">Art</Nav.Link>

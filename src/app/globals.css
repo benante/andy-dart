@@ -21,3 +21,9 @@
     text-wrap: balance;
   }
 }
+
+@media screen and (min-width: 575.98px) {
+  .centerOverride {
+    justify-content: center !important;
+  }
+}
