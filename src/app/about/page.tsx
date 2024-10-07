@@ -7,7 +7,7 @@ const About = () => {
   return (
     <main className="p-3">
       <Image src={self_portrait} alt="self portrait of the artist"></Image>
-      <p className="my-2">
+      <p className="my-5">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc hendrerit,
         nibh et porttitor sodales, enim augue eleifend ipsum, nec iaculis ligula
         sapien non leo. Suspendisse ornare pharetra ante, sit amet ornare ante

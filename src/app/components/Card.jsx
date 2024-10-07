@@ -22,7 +22,7 @@ const Card = ({ img }) => {
         className="relative"
       >
         {!hovered && (
-          <div className="z-10 w-full h-full flex items-center justify-center absolute bg-slate-50 opacity-90">
+          <div className="w-full p-3 flex items-center justify-center absolute bottom-0 bg-slate-50 opacity-90">
             <span className="text-lg">{img.title}</span>
           </div>
         )}

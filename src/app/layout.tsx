@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Montserrat, Roboto, Ubuntu } from 'next/font/google';
 import './globals.css';
 import NavigationBar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Move this import here
 
 const inter = Inter({ subsets: ['latin'] });
+const montserrat = Montserrat({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Andy Dart',
@@ -18,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} `}>
+      <body className={`${montserrat.className} `}>
         <NavigationBar></NavigationBar>
         {children}
       </body>
