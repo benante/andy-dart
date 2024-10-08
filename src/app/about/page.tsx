@@ -5,7 +5,7 @@ import andy from '../../../public/andy.jpg';
 
 const About = () => {
   return (
-    <main className="p-3">
+    <main className="px-3">
       <Image src={self_portrait} alt="self portrait of the artist"></Image>
       <p className="my-5">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc hendrerit,

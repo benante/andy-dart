@@ -11,7 +11,9 @@ function NavigationBar() {
     <Navbar collapseOnSelect expand="sm">
       {/* centerOverride overrides Bootstrap */}
       <Container className="flex align-middle centerOverride py-2 my-2">
-        <Navbar.Brand href="/">ANDY DART</Navbar.Brand>
+        <Navbar.Brand href="/" className="sm pl-1 ">
+          ANDY DART
+        </Navbar.Brand>
         <Navbar.Toggle style={noBorders} aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="grow-0" id="basic-navbar-nav">
           <Nav className="me-auto">
