@@ -16,23 +16,17 @@ const Card = ({ img }) => {
 
   return (
     <>
-      <div
-        onMouseEnter={showDetails}
-        onMouseLeave={hideDetails}
-        className="relative"
-      >
-        {!hovered && (
-          <div className="w-full p-3 flex items-center justify-center absolute bottom-0 bg-slate-50 opacity-90">
-            <span className="text-lg">{img.title}</span>
-          </div>
-        )}
-
+      <div>
         <Image
           className="w-96 h-96 object-cover z-0"
           alt={img.alt}
           src={img.src}
           key={img.id}
         ></Image>
+
+        <div>
+          <span className="text-lg text-gray-600">{img.title}</span>
+        </div>
       </div>
     </>
   );
