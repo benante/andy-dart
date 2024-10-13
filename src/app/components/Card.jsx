@@ -18,13 +18,13 @@ const Card = ({ img }) => {
     <>
       <div>
         <Image
-          className="w-96 h-96 object-cover z-0"
+          className="w-96 h-96 object-cover"
           alt={img.alt}
           src={img.src}
           key={img.id}
         ></Image>
 
-        <div>
+        <div className="py-2">
           <span className="text-lg text-gray-600">{img.title}</span>
         </div>
       </div>
