@@ -4,15 +4,17 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const Card = ({ img }) => {
-  const [hovered, setHovered] = useState(true);
-  const showDetails = () => {
-    setHovered(false);
-    console.log(hovered);
-  };
-  const hideDetails = () => {
-    setHovered(true);
-    console.log(hovered);
-  };
+  // DELETE THIS BIT IF NOT USED
+
+  // const [hovered, setHovered] = useState(true);
+  // const showDetails = () => {
+  //   setHovered(false);
+  //   console.log(hovered);
+  // };
+  // const hideDetails = () => {
+  //   setHovered(true);
+  //   console.log(hovered);
+  // };
 
   return (
     <>

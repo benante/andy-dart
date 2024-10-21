@@ -23,7 +23,7 @@ function NavigationBar() {
             <Link href="/art" passHref legacyBehavior>
               <Nav.Link>Art</Nav.Link>
             </Link>
-            <Link href="#exhibitions" passHref legacyBehavior>
+            <Link href="/exhibitions" passHref legacyBehavior>
               <Nav.Link>Exhibitions</Nav.Link>
             </Link>
             <Link href="/contact" passHref legacyBehavior>
