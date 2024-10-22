@@ -1,7 +1,12 @@
-export const exhibitions: { name: string; location: string; date: number }[] = [
+export const exhibitions: { venue: string; location: string; date: Date }[] = [
   {
-    name: 'Wellcome Collection',
+    venue: 'Wellcome Collection',
     location: 'Euston, London',
-    date: 12 / 12 / 2024,
+    date: new Date('12/12/2024'),
+  },
+  {
+    venue: 'British Library',
+    location: 'King`s Cross, London',
+    date: new Date('12/11/2025'),
   },
 ];
