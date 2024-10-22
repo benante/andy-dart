@@ -9,4 +9,14 @@ export const exhibitions: { venue: string; location: string; date: Date }[] = [
     location: 'King`s Cross, London',
     date: new Date('12/11/2025'),
   },
+  {
+    venue: 'Tate Britain',
+    location: 'Pimlico, London',
+    date: new Date('12/11/2012'),
+  },
+  {
+    venue: 'Serpentine',
+    location: 'Hyde Park, London',
+    date: new Date('12/11/2002'),
+  },
 ];
