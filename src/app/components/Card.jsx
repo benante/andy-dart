@@ -19,13 +19,15 @@ const Card = ({ img }) => {
   return (
     <>
       <div>
-        <Image
-          className="w-96 h-96 object-cover"
-          alt={img.alt}
-          src={img.src}
-          key={img.id}
-        ></Image>
-
+        <div className="max-h-96 min-w-96 overflow-hidden">
+          <Image
+            className="object-cover h-screen"
+            priority={true}
+            alt={img.alt}
+            src={img.src}
+            key={img.id}
+          ></Image>
+        </div>
         <div className="py-2">
           <span className="text-lg text-gray-600">{img.title}</span>
         </div>
