@@ -1,12 +1,14 @@
 import React from 'react';
 import { exhibitions } from '../../../public/exhibitions';
+import Image from 'next/image';
+import pic from '../../../public/exhibition.jpg';
 
 const Exhibitions = () => {
   const currentDate = new Date();
 
   return (
-    <main className="flex justify-center">
-      <div>
+    <main className="grid m-3 lg:grid-cols-2 ">
+      <div className="flex flex-col justify-center">
         {exhibitions.map((item) =>
           currentDate.getTime() < item.date.getTime() ? (
             <div key={item.venue} className="flex flex-col mb-4 g-3">
@@ -26,6 +28,9 @@ const Exhibitions = () => {
             </div>
           )
         )}
+      </div>
+      <div>
+        <Image priority={true} alt="exhibition image" src={pic}></Image>
       </div>
     </main>
   );
