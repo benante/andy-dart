@@ -19,9 +19,9 @@ const Card = ({ img }) => {
   return (
     <>
       <div>
-        <div className="max-h-96 min-w-96 overflow-hidden">
+        <div className=" min-w-full h-96">
           <Image
-            className="object-cover h-screen"
+            className="object-cover h-96"
             priority={true}
             alt={img.alt}
             src={img.src}
