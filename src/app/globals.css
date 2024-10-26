@@ -20,6 +20,9 @@
   .text-balance {
     text-wrap: balance;
   }
+  .temp_col_2_20_80 {
+    grid-template-columns: 20% auto;
+  }
 }
 
 @media screen and (min-width: 575.98px) {

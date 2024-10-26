@@ -7,30 +7,29 @@ const Exhibitions = () => {
   const currentDate = new Date();
 
   return (
-    <main className="grid m-3 lg:grid-cols-2 ">
-      <div className="flex flex-col justify-center">
+    <main className="flex flex-col m-3 items-center (640px):">
+      {/* lg:grid-cols-2 lg:temp_col_2_20_80  */}
+      <div>
+        <Image priority={true} alt="exhibition image" src={pic}></Image>
+      </div>
+      <div className=" mt-12 ">
         {exhibitions.map((item) =>
           currentDate.getTime() < item.date.getTime() ? (
-            <div key={item.venue} className="flex flex-col mb-4 g-3">
-              <h1 className="font-semibold">Coming</h1>
-              <h3>{item.venue}</h3>
+            <div key={item.venue} className="flex flex-col mb-4 ">
+              <h3 className="font-semibold">{item.venue}</h3>
               <span>{item.location}</span>
               {/* Convert the Date object into a string */}
               <span>{item.date.toDateString()}</span>
             </div>
           ) : (
             <div key={item.venue} className="flex flex-col mb-4">
-              <h1 className="line-through font-semibold">Past</h1>
-              <h3>{item.venue}</h3>
-              <span>{item.location}</span>
+              <h3 className="font-semibold">{item.venue}</h3>
+              <span className="line-through">{item.location}</span>
               {/* Convert the Date object into a string */}
-              <span>{item.date.toDateString()}</span>
+              <span className="line-through">{item.date.toDateString()}</span>
             </div>
           )
         )}
-      </div>
-      <div>
-        <Image priority={true} alt="exhibition image" src={pic}></Image>
       </div>
     </main>
   );
