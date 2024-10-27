@@ -7,15 +7,20 @@ const Exhibitions = () => {
   const currentDate = new Date();
 
   return (
-    <main className="flex flex-col m-3 items-center (640px):">
-      {/* lg:grid-cols-2 lg:temp_col_2_20_80  */}
+    <main className="flex flex-col-reverse m-4 lg:flex-row lg:justify-center">
+      {/* grid mx-4 lg:grid-cols-2 lg:temp_2cols_70_30*/}
       <div>
-        <Image priority={true} alt="exhibition image" src={pic}></Image>
+        <Image
+          priority={true}
+          alt="exhibition image"
+          src={pic}
+          width={1000}
+        ></Image>
       </div>
-      <div className=" mt-12 ">
+      <div className=" lg:ml-5">
         {exhibitions.map((item) =>
           currentDate.getTime() < item.date.getTime() ? (
-            <div key={item.venue} className="flex flex-col mb-4 ">
+            <div key={item.venue} className="flex flex-col mb-4">
               <h3 className="font-semibold">{item.venue}</h3>
               <span>{item.location}</span>
               {/* Convert the Date object into a string */}

@@ -20,8 +20,8 @@
   .text-balance {
     text-wrap: balance;
   }
-  .temp_col_2_20_80 {
-    grid-template-columns: 20% auto;
+  .temp_2cols_70_30 {
+    grid-template-columns: auto 30%;
   }
 }
 
