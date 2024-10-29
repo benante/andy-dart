@@ -9,7 +9,7 @@ function NavigationBar() {
   return (
     <Navbar collapseOnSelect expand="sm">
       {/* centerOverride overrides Bootstrap */}
-      <Container className="flex align-middle centerOverride py-2 my-2">
+      <Container className="flex flex-row align-middle centerOverride py-2 my-2">
         <Navbar.Brand href="/" className="pl-1 ">
           ANDY DART
         </Navbar.Brand>
