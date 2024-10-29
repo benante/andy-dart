@@ -27,13 +27,13 @@ export default function RootLayout({
       <body className={`${montserrat.className} `}>
         <NavigationBar></NavigationBar>
         {children}
-        <footer className="p-4  text-center ">
-          <Link
-            className="no-underline text-sm text-gray-300"
+        <footer className="p-4 text-center">
+          <a
+            className="no-underline text-sm text-gray-400"
             href="https://github.com/benante"
           >
             By Orlandi Tommaso
-          </Link>
+          </a>
         </footer>
       </body>
     </html>
