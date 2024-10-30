@@ -7,7 +7,7 @@ const Exhibitions = () => {
   const currentDate = new Date();
 
   return (
-    <main className="flex flex-col-reverse m-4 lg:flex-row lg:justify-center">
+    <main className="flex flex-col-reverse m-2 lg:flex-row lg:justify-center">
       {/* grid mx-4 lg:grid-cols-2 lg:temp_2cols_70_30*/}
       <div>
         <Image

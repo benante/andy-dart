@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter, Montserrat, Roboto, Ubuntu } from 'next/font/google';
 import './globals.css';
+import Footer from './components/Footer';
 import NavigationBar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Move this import here
-import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 const montserrat = Montserrat({
@@ -27,14 +27,7 @@ export default function RootLayout({
       <body className={`${montserrat.className} min-h-screen flex flex-col`}>
         <NavigationBar></NavigationBar>
         {children}
-        <footer className="p-4 mt-auto text-center">
-          <a
-            className="no-underline text-sm text-gray-400"
-            href="https://github.com/benante"
-          >
-            By Orlandi Tommaso
-          </a>
-        </footer>
+        <Footer></Footer>
       </body>
     </html>
   );
