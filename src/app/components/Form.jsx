@@ -45,52 +45,60 @@ function FormMessage() {
   };
 
   return (
-    <Form ref={form} noValidate validated={validated} onSubmit={handleSubmit}>
-      {/* name */}
-      <Row className="mb-3">
-        <Form.Group as={Col} md="6" controlId="validationCustom01">
-          <Form.Label>Your name</Form.Label>
+    <div className="min-w-80">
+      <h2 className="font-semibold mb-4">Contact</h2>
+      <p className="mb-4">
+        For general enquiries, images of available works, and a price list send
+        me a message
+      </p>
+
+      <Form ref={form} noValidate validated={validated} onSubmit={handleSubmit}>
+        {/* name */}
+        <Row className="mb-3">
+          <Form.Group md="6" controlId="validationCustom01">
+            <Form.Label>Your name</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              placeholder="Enter your full name"
+              name="user_name" // Matching the name attribute for emailjs
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+        </Row>
+
+        {/* email */}
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Your email address</Form.Label>
           <Form.Control
             required
-            type="text"
-            placeholder="Enter your full name"
-            name="user_name" // Matching the name attribute for emailjs
+            type="email"
+            name="user_email" // Matching the name attribute for emailjs
+            placeholder="Enter your email"
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid email.
+          </Form.Control.Feedback>
         </Form.Group>
-      </Row>
 
-      {/* email */}
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Your email address</Form.Label>
-        <Form.Control
-          required
-          type="email"
-          name="user_email" // Matching the name attribute for emailjs
-          placeholder="Enter your email"
-        />
-        <Form.Control.Feedback type="invalid">
-          Please provide a valid email.
-        </Form.Control.Feedback>
-      </Form.Group>
+        {/* message */}
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Your message</Form.Label>
+          <Form.Control
+            required
+            as="textarea"
+            rows={3}
+            name="message" // Matching the name attribute for emailjs
+            placeholder="Enter your message"
+          />
+          <Form.Control.Feedback type="invalid">
+            Please enter a message.
+          </Form.Control.Feedback>
+        </Form.Group>
 
-      {/* message */}
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Your message</Form.Label>
-        <Form.Control
-          required
-          as="textarea"
-          rows={3}
-          name="message" // Matching the name attribute for emailjs
-          placeholder="Enter your message"
-        />
-        <Form.Control.Feedback type="invalid">
-          Please enter a message.
-        </Form.Control.Feedback>
-      </Form.Group>
-
-      <Button type="submit">Submit message</Button>
-    </Form>
+        <Button type="submit">Submit message</Button>
+      </Form>
+    </div>
   );
 }
 
