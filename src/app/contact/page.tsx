@@ -6,7 +6,6 @@ const Contact = () => {
     // width of form is applied on parent container
     <div className="max-w-screen-sm p-4">
       <FormForMessage></FormForMessage>
-      {/* <FormForMessage></FormForMessage> */}
     </div>
   );
 };

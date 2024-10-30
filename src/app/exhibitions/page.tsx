@@ -1,7 +1,6 @@
 import React from 'react';
 import { exhibitions } from '../../../public/exhibitions';
 import Image from 'next/image';
-import pic from '../../../public/exhibition.jpg';
 
 const Exhibitions = () => {
   const currentDate = new Date();
@@ -13,8 +12,9 @@ const Exhibitions = () => {
         <Image
           priority={true}
           alt="exhibition image"
-          src={pic}
+          src={'/exhibition.jpg'}
           width={1000}
+          height={1000}
         ></Image>
       </div>
       <div className=" lg:ml-5">
