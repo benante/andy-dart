@@ -12,7 +12,7 @@ const About = () => {
         width={500}
         alt="self portrait of the artist"
       ></Image>
-      <p className="xl:mx-24 md:mx-12">
+      <p className="max-w-3xl">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
