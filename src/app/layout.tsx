@@ -23,11 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${montserrat.className} `}>
+    <html className="h-full" lang="en">
+      <body className={`${montserrat.className} min-h-screen flex flex-col`}>
         <NavigationBar></NavigationBar>
         {children}
-        <footer className="p-4 text-center">
+        <footer className="p-4 mt-auto text-center">
           <a
             className="no-underline text-sm text-gray-400"
             href="https://github.com/benante"
