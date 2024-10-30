@@ -1,15 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Image from 'next/image';
-import self_portrait from '../../../public/self_portrait.jpg';
-import andy from '../../../public/andy.jpg';
 
 const About = () => {
   return (
     <main className="px-3 flex flex-col items-center gap-8 ">
       <Image
-        src={self_portrait}
+        src={'/self_portrait.jpg'}
         width={500}
+        height={500}
         alt="self portrait of the artist"
       ></Image>
       <p className="max-w-3xl">
