@@ -46,7 +46,7 @@ function FormMessage() {
 
   return (
     <div className="min-w-80">
-      <h2 className="font-semibold mb-4">Contact</h2>
+      <h2 className="font-semibold mb-2 ">Contact</h2>
       <p className="mb-4">
         For general enquiries, images of available works, and a price list send
         me a message
@@ -96,7 +96,9 @@ function FormMessage() {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Button type="submit">Submit message</Button>
+        <Button className="bg_button" type="submit">
+          Submit message
+        </Button>
       </Form>
     </div>
   );

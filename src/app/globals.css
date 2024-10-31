@@ -23,6 +23,19 @@
   .temp_2cols_70_30 {
     grid-template-columns: auto 30%;
   }
+  .bg_main_color {
+    background-color: #eeeeee;
+  }
+  .bg_button {
+    background-color: #4691e3;
+    border-color: #4691e3;
+  }
+  /* POSSIBLE BG-COLORS:
+  light blue > c0dbea
+  light-pink > fff6f6 */
+  img {
+    border-radius: 5px;
+  }
 }
 
 @media screen and (min-width: 575.98px) {
