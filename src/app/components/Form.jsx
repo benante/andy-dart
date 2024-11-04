@@ -1,10 +1,10 @@
 'use client';
 import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import emailjs from '@emailjs/browser';
+import Spinner from 'react-bootstrap/Spinner';
 
 function FormMessage() {
   const [validated, setValidated] = useState(false);
@@ -18,11 +18,10 @@ function FormMessage() {
     // If the form is not valid, stop submission
     if (formElement.checkValidity() === false) {
       // event.stopPropagation() stops the event from bubbling up or propagating to parent elements. In a form, for example, this prevents any parent elements from handling the event.
+      event.preventDefault();
       event.stopPropagation();
-
-      setValidated(true);
-      return;
     }
+    setValidated(true);
 
     // Use emailjs to send the form
     emailjs
@@ -35,7 +34,6 @@ function FormMessage() {
       .then(
         () => {
           console.log('Email successfully sent!');
-          setValidated(false);
           form.current.reset(); // Reset form fields after submission
         },
         (error) => {
@@ -66,7 +64,6 @@ function FormMessage() {
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
         </Row>
-
         {/* email */}
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Your email address</Form.Label>
@@ -80,7 +77,6 @@ function FormMessage() {
             Please provide a valid email.
           </Form.Control.Feedback>
         </Form.Group>
-
         {/* message */}
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Your message</Form.Label>
@@ -95,10 +91,17 @@ function FormMessage() {
             Please enter a message.
           </Form.Control.Feedback>
         </Form.Group>
-
-        <Button className="bg_button" type="submit">
-          Submit message
-        </Button>
+        {/* <Button variant="primary" type="submit">
+            <Spinner
+              as="span"
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            Loading...
+          </Button> */}
+        <Button type="submit">Submit message</Button>
       </Form>
     </div>
   );
