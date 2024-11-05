@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import emailjs from '@emailjs/browser';
 import Spinner from 'react-bootstrap/Spinner';
 
-function FormMessage() {
+function FormMessage({ setSendForm }) {
   const [validated, setValidated] = useState(false);
-  const [sentEmail, setSentEmail] = useState(false);
+  const [loading, setLoading] = useState(false);
   const form = useRef(); // Reference to the form
 
   const handleSubmit = (event) => {
@@ -21,10 +21,10 @@ function FormMessage() {
       // event.stopPropagation() stops the event from bubbling up or propagating to parent elements. In a form, for example, this prevents any parent elements from handling the event.
       event.preventDefault();
       event.stopPropagation();
-      setValidated(true);
+      setValidated(true); // this trigger red highlight if fields are not filled
     } else {
       // Use emailjs to send the form
-      setSentEmail(true);
+      setLoading(true);
       emailjs
         .sendForm(
           'service_72m6uwl', //  EmailJS service ID
@@ -41,75 +41,68 @@ function FormMessage() {
             console.log('Failed to send email...', error.text);
           }
         );
+      setTimeout(() => setSendForm(true), 2000);
     }
   };
 
   return (
-    <div className="min-w-80">
-      <h2 className="font-semibold mb-2 ">Contact</h2>
-      <p className="mb-4">
-        For general enquiries, images of available works, and a price list send
-        me a message
-      </p>
-
-      <Form ref={form} noValidate validated={validated} onSubmit={handleSubmit}>
-        {/* name */}
-        <Row className="mb-3">
-          <Form.Group md="6" controlId="validationCustom01">
-            <Form.Label>Your name</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="Enter your full name"
-              name="user_name" // Matching the name attribute for emailjs
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-        {/* email */}
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Your email address</Form.Label>
+    <Form ref={form} noValidate validated={validated} onSubmit={handleSubmit}>
+      {/* name */}
+      <Row className="mb-3">
+        <Form.Group md="6" controlId="validationCustom01">
+          <Form.Label>Your name</Form.Label>
           <Form.Control
             required
-            type="email"
-            name="user_email" // Matching the name attribute for emailjs
-            placeholder="Enter your email"
+            type="text"
+            placeholder="Enter your full name"
+            name="user_name" // Matching the name attribute for emailjs
           />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid email.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        {/* message */}
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Label>Your message</Form.Label>
-          <Form.Control
-            required
-            as="textarea"
-            rows={3}
-            name="message" // Matching the name attribute for emailjs
-            placeholder="Enter your message"
+      </Row>
+      {/* email */}
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Your email address</Form.Label>
+        <Form.Control
+          required
+          type="email"
+          name="user_email" // Matching the name attribute for emailjs
+          placeholder="Enter your email"
+        />
+        <Form.Control.Feedback type="invalid">
+          Please provide a valid email.
+        </Form.Control.Feedback>
+      </Form.Group>
+      {/* message */}
+      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <Form.Label>Your message</Form.Label>
+        <Form.Control
+          required
+          as="textarea"
+          rows={3}
+          name="message" // Matching the name attribute for emailjs
+          placeholder="Enter your message"
+        />
+        <Form.Control.Feedback type="invalid">
+          Please enter a message.
+        </Form.Control.Feedback>
+      </Form.Group>
+      {loading ? (
+        <Button variant="primary" type="submit">
+          <Spinner
+            className="mr-2"
+            as="span"
+            animation="border"
+            size="sm"
+            role="status"
+            aria-hidden="true"
           />
-          <Form.Control.Feedback type="invalid">
-            Please enter a message.
-          </Form.Control.Feedback>
-        </Form.Group>
-        {!sentEmail ? (
-          <Button variant="primary" type="submit">
-            <Spinner
-              className="mr-2"
-              as="span"
-              animation="border"
-              size="sm"
-              role="status"
-              aria-hidden="true"
-            />
-            Loading...
-          </Button>
-        ) : (
-          <Button type="submit">Submit message</Button>
-        )}
-      </Form>
-    </div>
+          Loading...
+        </Button>
+      ) : (
+        <Button type="submit">Submit message</Button>
+      )}
+    </Form>
   );
 }
 
