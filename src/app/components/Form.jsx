@@ -8,6 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 function FormMessage() {
   const [validated, setValidated] = useState(false);
+  const [sentEmail, setSentEmail] = useState(false);
   const form = useRef(); // Reference to the form
 
   const handleSubmit = (event) => {
@@ -20,26 +21,27 @@ function FormMessage() {
       // event.stopPropagation() stops the event from bubbling up or propagating to parent elements. In a form, for example, this prevents any parent elements from handling the event.
       event.preventDefault();
       event.stopPropagation();
+      setValidated(true);
+    } else {
+      // Use emailjs to send the form
+      setSentEmail(true);
+      emailjs
+        .sendForm(
+          'service_72m6uwl', //  EmailJS service ID
+          'template_awk483r', //  EmailJS template ID
+          form.current, // Form reference
+          'ULxEnyWmY68sczEsF' // public key from EmailJS
+        )
+        .then(
+          () => {
+            console.log('Email successfully sent!');
+            // form.current.reset(); // Reset form fields after submission
+          },
+          (error) => {
+            console.log('Failed to send email...', error.text);
+          }
+        );
     }
-    setValidated(true);
-
-    // Use emailjs to send the form
-    emailjs
-      .sendForm(
-        'service_72m6uwl', //  EmailJS service ID
-        'template_awk483r', //  EmailJS template ID
-        form.current, // Form reference
-        'ULxEnyWmY68sczEsF' // public key from EmailJS
-      )
-      .then(
-        () => {
-          console.log('Email successfully sent!');
-          form.current.reset(); // Reset form fields after submission
-        },
-        (error) => {
-          console.log('Failed to send email...', error.text);
-        }
-      );
   };
 
   return (
@@ -91,8 +93,10 @@ function FormMessage() {
             Please enter a message.
           </Form.Control.Feedback>
         </Form.Group>
-        {/* <Button variant="primary" type="submit">
+        {!sentEmail ? (
+          <Button variant="primary" type="submit">
             <Spinner
+              className="mr-2"
               as="span"
               animation="border"
               size="sm"
@@ -100,8 +104,10 @@ function FormMessage() {
               aria-hidden="true"
             />
             Loading...
-          </Button> */}
-        <Button type="submit">Submit message</Button>
+          </Button>
+        ) : (
+          <Button type="submit">Submit message</Button>
+        )}
       </Form>
     </div>
   );
