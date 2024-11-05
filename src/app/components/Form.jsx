@@ -48,18 +48,16 @@ function FormMessage({ setSendForm }) {
   return (
     <Form ref={form} noValidate validated={validated} onSubmit={handleSubmit}>
       {/* name */}
-      <Row className="mb-3">
-        <Form.Group md="6" controlId="validationCustom01">
-          <Form.Label>Your name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Enter your full name"
-            name="user_name" // Matching the name attribute for emailjs
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-      </Row>
+      <Form.Group className="mb-3" controlId="validationCustom01">
+        <Form.Label>Your name</Form.Label>
+        <Form.Control
+          required
+          type="text"
+          placeholder="Enter your full name"
+          name="user_name" // Matching the name attribute for emailjs
+        />
+        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+      </Form.Group>
       {/* email */}
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Your email address</Form.Label>

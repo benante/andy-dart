@@ -15,6 +15,7 @@ const Contact = () => {
         priority={true}
         width={800}
         height={800}
+        style={{ width: 'auto', height: 'auto' }} // to avoid next.js "Image with src  has either width or height modified, but not the other"
       ></Image>
       <div className="min-w-80">
         <h2 className="font-semibold mb-2 ">Contact</h2>
