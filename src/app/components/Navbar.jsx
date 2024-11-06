@@ -20,8 +20,8 @@ function NavigationBar() {
             <Link href="/about" passHref legacyBehavior>
               <Nav.Link>About</Nav.Link>
             </Link>
-            <Link href="/art" passHref legacyBehavior>
-              <Nav.Link>Art</Nav.Link>
+            <Link href="/gallery" passHref legacyBehavior>
+              <Nav.Link>Gallery</Nav.Link>
             </Link>
             <Link href="/exhibitions" passHref legacyBehavior>
               <Nav.Link>Exhibitions</Nav.Link>
