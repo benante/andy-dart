@@ -27,11 +27,13 @@ function FormMessage({ setSendForm }) {
       setLoading(true);
       emailjs
         .sendForm(
-          'service_72m6uwl', //  EmailJS service ID
-          'template_awk483r', //  EmailJS template ID
+          process.env.NEXT_PUBLIC_SERVICE_ID, //  EmailJS service ID
+          process.env.NEXT_PUBLIC_TEMPLATE_ID, //  EmailJS template ID
           form.current, // Form reference
-          'ULxEnyWmY68sczEsF' // public key from EmailJS
+          process.env.NEXT_PUBLIC_PUBLIC_KEY // public key from EmailJS
         )
+        // WHY KEYS ARE PUBLIC
+        // Indeed, someone could copy your keys (a well-known issue of any public API), but they will only be able to send your templates with your content, and they will not be able to send a custom email with their content (spam), which is not interesting for spammers. A better way to think of EmailJS in terms of security is not as a service that allows you to send emails from your code, but rather as a service that allows you to create a predefined set of emails via the dashboard, and then just trigger the emails from the code. This is quite similar to how emails are usually sent via a proprietary server code and how products like Intercom or customer.io are working.
         .then(
           () => {
             console.log('Email successfully sent!');
