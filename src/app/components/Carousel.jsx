@@ -11,9 +11,10 @@ function DarkVariantExample() {
     setIndex(selectedIndex);
   };
   return (
-    <main className="abolute top-0 left-0 h-screen w-screen">
+    <main className="abolute ">
       {/* Add slide={false} to Carousel? */}
       <Carousel
+        slide={false}
         interval={null}
         data-bs-theme="dark"
         activeIndex={index}
@@ -23,7 +24,7 @@ function DarkVariantExample() {
           <Carousel.Item key={img.id}>
             <Image
               priority={true}
-              className=""
+              className="w-auto h-auto"
               src={img.src}
               alt={img.alt}
               width={500}
