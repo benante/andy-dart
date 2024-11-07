@@ -19,7 +19,7 @@ const Card = ({ img }) => {
   return (
     <>
       <div className=" hover:cursor-zoom-in">
-        <div className="min-w-full h-96 hover:shadow-slate-500 hover:shadow-lg">
+        <div className="min-w-full h-96 hover:shadow-slate-500 hover:shadow-lg rounded">
           <Image
             className="object-cover h-96"
             priority={true}
