@@ -11,9 +11,9 @@ function DarkVariantExample() {
     setIndex(selectedIndex);
   };
   return (
-    <main className="abolute ">
-      {/* Add slide={false} to Carousel? */}
+    <main>
       <Carousel
+        indicators={false}
         slide={false}
         interval={null}
         data-bs-theme="dark"
@@ -24,13 +24,13 @@ function DarkVariantExample() {
           <Carousel.Item key={img.id}>
             <Image
               priority={true}
-              className="w-auto h-auto"
+              className="w-3/4 mx-auto my-0" //width 75% to leave narrows outside img, margings to center img
               src={img.src}
               alt={img.alt}
               width={500}
               height={500}
             />
-            <Carousel.Caption>
+            <Carousel.Caption className="text-white font-semibold ">
               <h5>{img.title}</h5>
               <p>{img.size}</p>
             </Carousel.Caption>
