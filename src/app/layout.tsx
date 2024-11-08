@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html className="h-full" lang="en">
       <body
-        className={`${montserrat.className} min-h-screen flex flex-col bg_main_color`}
+        className={`${montserrat.className} h-screen flex flex-col bg_main_color`}
       >
         <NavigationBar></NavigationBar>
         {children}

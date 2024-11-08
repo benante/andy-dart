@@ -11,7 +11,7 @@ function DarkVariantExample() {
     setIndex(selectedIndex);
   };
   return (
-    <main>
+    <div className="h-">
       <Carousel
         indicators={false}
         slide={false}
@@ -37,7 +37,7 @@ function DarkVariantExample() {
           </Carousel.Item>
         ))}
       </Carousel>
-    </main>
+    </div>
   );
 }
 
