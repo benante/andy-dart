@@ -5,22 +5,22 @@ import Image from 'next/image';
 import paintingsImgs from '../../../public/gallery/imglist';
 
 function DarkVariantExample() {
-  const [index, setIndex] = useState(0);
+  const current = 5;
 
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
+  // create a new copy of the array, whose initial element start with the selected one.
+  let newArrayImg = paintingsImgs.slice(current);
+  // Then push the elements that come before the selected one at the end of the new array
+  newArrayImg.push(paintingsImgs.slice(0, current)[0]);
+
   return (
-    <div className="h-">
+    <div>
       <Carousel
         indicators={false}
         slide={false}
         interval={null}
         data-bs-theme="dark"
-        activeIndex={index}
-        onSelect={handleSelect}
       >
-        {paintingsImgs.map((img) => (
+        {newArrayImg.map((img) => (
           <Carousel.Item key={img.id}>
             <Image
               priority={true}

@@ -1,24 +1,14 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { useState } from 'react';
 
 const Card = ({ img }) => {
-  // DELETE THIS BIT IF NOT USED
-
-  // const [hovered, setHovered] = useState(true);
-  // const showDetails = () => {
-  //   setHovered(false);
-  //   console.log(hovered);
-  // };
-  // const hideDetails = () => {
-  //   setHovered(true);
-  //   console.log(hovered);
-  // };
-
+  let selectIndex = (img) => {
+    console.log(img.id);
+  };
   return (
     <>
-      <div className=" hover:cursor-zoom-in">
+      <div className=" hover:cursor-zoom-in" onClick={() => selectIndex(img)}>
         <div className="min-w-full h-96 hover:shadow-slate-500 hover:shadow-lg rounded">
           <Image
             className="object-cover h-96"
