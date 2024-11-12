@@ -5,10 +5,15 @@ import Image from 'next/image';
 import paintingsImgs from '../../../public/gallery/imglist';
 
 function DarkVariantExample({ currentIndex }) {
-  // create a new copy of the array, whose initial element start with the selected one.
-  let newArrayImg = paintingsImgs.slice(currentIndex);
-  // Then push the elements that come before the selected one at the end of the new array
-  newArrayImg.push(paintingsImgs.slice(0, currentIndex)[0]);
+  let copyArrayImg;
+  if (currentIndex === 0) {
+    copyArrayImg = paintingsImgs;
+  } else {
+    // create a new copy of the array, whose initial element start with the selected one.
+    copyArrayImg = paintingsImgs.slice(currentIndex);
+    // Then push the elements that come before the selected one at the end of the new array
+    copyArrayImg.push(paintingsImgs.slice(0, currentIndex)[0]);
+  }
 
   return (
     <div>
@@ -18,11 +23,11 @@ function DarkVariantExample({ currentIndex }) {
         interval={null}
         data-bs-theme="dark"
       >
-        {newArrayImg.map((img) => (
+        {copyArrayImg.map((img) => (
           <Carousel.Item key={img.id}>
             <Image
               priority={true}
-              className="w-3/4 mx-auto my-0" //width 75% to leave narrows outside img, margings to center img
+              className="w-3/4 mx-auto my-0" //width 75% to leave arrows outside img, margings to center img
               src={img.src}
               alt={img.alt}
               width={500}
