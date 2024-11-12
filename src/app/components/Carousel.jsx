@@ -4,13 +4,11 @@ import Carousel from 'react-bootstrap/Carousel';
 import Image from 'next/image';
 import paintingsImgs from '../../../public/gallery/imglist';
 
-function DarkVariantExample() {
-  const current = 5;
-
+function DarkVariantExample({ currentIndex }) {
   // create a new copy of the array, whose initial element start with the selected one.
-  let newArrayImg = paintingsImgs.slice(current);
+  let newArrayImg = paintingsImgs.slice(currentIndex);
   // Then push the elements that come before the selected one at the end of the new array
-  newArrayImg.push(paintingsImgs.slice(0, current)[0]);
+  newArrayImg.push(paintingsImgs.slice(0, currentIndex)[0]);
 
   return (
     <div>
