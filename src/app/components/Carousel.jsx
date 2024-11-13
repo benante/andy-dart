@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from 'next/image';
 import paintingsImgs from '../../../public/gallery/imglist';
+import CloseBtn from '../components/CloseBtn';
 
 function DarkVariantExample({ currentIndex }) {
   let copyArrayImg;
@@ -16,7 +17,7 @@ function DarkVariantExample({ currentIndex }) {
   }
 
   return (
-    <div>
+    <div className="flex flex-col items-center gap-10 mx-2">
       <Carousel
         indicators={false}
         slide={false}
@@ -27,7 +28,7 @@ function DarkVariantExample({ currentIndex }) {
           <Carousel.Item key={img.id}>
             <Image
               priority={true}
-              className="w-3/4 mx-auto my-0" //width 75% to leave arrows outside img, margings to center img
+              className=" " //width 75% to leave arrows outside img, margings to center img
               src={img.src}
               alt={img.alt}
               width={500}
@@ -40,6 +41,7 @@ function DarkVariantExample({ currentIndex }) {
           </Carousel.Item>
         ))}
       </Carousel>
+      <CloseBtn></CloseBtn>
     </div>
   );
 }
