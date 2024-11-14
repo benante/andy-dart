@@ -1,23 +1,16 @@
 'use client';
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import React from 'react';
 import imglist from '../../../public/gallery/imglist';
 import Card from '../components/Card';
 import Slider from '../components/Carousel';
 
-// Create variables to identify index.
-// that gets clicked on the card element, which will pass the index to the slider element.
-// once slider closes reset index
-// toggle CARD / Slider
+export const IndexContext = createContext();
 
 const Gallery = () => {
   const [index, setIndex] = useState(null);
   console.log(index);
 
-  // const handleSelect = (selectedIndex) => {
-  //   setIndex(selectedIndex);
-  //   console.log(index);
-  // };
   return (
     <main className="grid justify-items-center">
       {index === null ? (
@@ -27,7 +20,9 @@ const Gallery = () => {
           ))}
         </div>
       ) : (
-        <Slider currentIndex={index}></Slider>
+        <IndexContext.Provider value={{ setIndex }}>
+          <Slider currentIndex={index}></Slider>
+        </IndexContext.Provider>
       )}
     </main>
   );
