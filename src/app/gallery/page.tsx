@@ -5,11 +5,16 @@ import imglist from '../../../public/gallery/imglist';
 import Card from '../components/Card';
 import Slider from '../components/Carousel';
 
-export const IndexContext = createContext();
+type IndexContextType =
+  | {
+      setIndex: React.Dispatch<React.SetStateAction<number | null>>;
+    }
+  | undefined;
+
+export const IndexContext = createContext<IndexContextType>(undefined);
 
 const Gallery = () => {
-  const [index, setIndex] = useState(null);
-  console.log(index);
+  const [index, setIndex] = useState<number | null>(null);
 
   return (
     <main className="grid justify-items-center">
