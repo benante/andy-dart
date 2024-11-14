@@ -1,17 +1,10 @@
 'use client';
-import { useState, createContext } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import imglist from '../../../public/gallery/imglist';
 import Card from '../components/Card';
 import Slider from '../components/Carousel';
-
-type IndexContextType =
-  | {
-      setIndex: React.Dispatch<React.SetStateAction<number | null>>;
-    }
-  | undefined;
-
-export const IndexContext = createContext<IndexContextType>(undefined);
+import { IndexContext } from '../IndexContext';
 
 const Gallery = () => {
   const [index, setIndex] = useState<number | null>(null);

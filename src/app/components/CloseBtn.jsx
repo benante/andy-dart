@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { IndexContext } from '../gallery/page';
+import { IndexContext } from '../IndexContext';
 import CloseButton from 'react-bootstrap/CloseButton';
 
 function LabelledExample() {
