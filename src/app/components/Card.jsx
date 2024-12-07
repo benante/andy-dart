@@ -11,12 +11,14 @@ const Card = ({ img, setIndex }) => {
             className="object-cover h-96"
             priority={true}
             alt={img.alt}
-            src={img.src}
+            src={img.url}
             key={img.id}
+            width={500}
+            height={500}
           ></Image>
         </div>
         <div className="py-2">
-          <span className="text-lg text-gray-600">{img.title}</span>
+          <span className="text-lg text-gray-600">{img.name}</span>
         </div>
       </div>
     </>

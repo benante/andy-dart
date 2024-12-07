@@ -1,29 +1,10 @@
-'use client';
-import { useState } from 'react';
-import React from 'react';
-import imglist from '../../../public/gallery/imglist';
-import Card from '../components/Card';
-import Slider from '../components/Carousel';
-import { IndexContext } from '../IndexContext';
+import { createClient } from '@/utils/supabase/server';
+import Gallery from '../components/Gallery';
 
-const Gallery = () => {
-  const [index, setIndex] = useState<number | null>(null);
+export default async function Art_work() {
+  const supabase = await createClient();
+  const { data: art_work } = await supabase.from('art_work').select();
+  console.log(art_work);
 
-  return (
-    <main className="grid justify-items-center">
-      {index === null ? (
-        <div className="grid sm:w-11/12 lg:w-4/5 gap-2 mx-2 justify-items-center grid-cols-1 lg:px-4 md:grid-cols-2 lg:grid-cols-3 ">
-          {imglist.map((img) => (
-            <Card img={img} setIndex={setIndex} key={img.id}></Card>
-          ))}
-        </div>
-      ) : (
-        <IndexContext.Provider value={{ setIndex }}>
-          <Slider currentIndex={index}></Slider>
-        </IndexContext.Provider>
-      )}
-    </main>
-  );
-};
-
-export default Gallery;
+  return <Gallery imglist={art_work} />;
+}
