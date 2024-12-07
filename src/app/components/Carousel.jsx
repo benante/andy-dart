@@ -5,13 +5,14 @@ import Image from 'next/image';
 import paintingsImgs from '../../../public/gallery/imglist';
 import CloseBtn from '../components/CloseBtn';
 
-function DarkVariantExample({ currentIndex }) {
+function CarouselDarkVariant({ currentIndex }) {
   let copyArrayImg;
   if (currentIndex === 0) {
     copyArrayImg = paintingsImgs;
   } else {
     // create a new copy of the array, whose initial element start with the selected one.
-    copyArrayImg = paintingsImgs.slice(currentIndex);
+    copyArrayImg = paintingsImgs.slice(currentIndex - 1); // -1 because the imgs in the database start with 1, not 0
+
     // Then push the elements that come before the selected one at the end of the new array
     copyArrayImg.push(paintingsImgs.slice(0, currentIndex)[0]);
   }
@@ -46,4 +47,4 @@ function DarkVariantExample({ currentIndex }) {
   );
 }
 
-export default DarkVariantExample;
+export default CarouselDarkVariant;
