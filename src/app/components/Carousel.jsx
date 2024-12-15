@@ -2,19 +2,18 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from 'next/image';
-import paintingsImgs from '../../../public/gallery/imglist';
-import CloseBtn from '../components/CloseBtn';
+import CloseBtn from './CloseBtn';
 
-function CarouselDarkVariant({ currentIndex }) {
+function Slider({ currentIndex, imgList }) {
   let copyArrayImg;
   if (currentIndex === 0) {
-    copyArrayImg = paintingsImgs;
+    copyArrayImg = imgList;
   } else {
     // create a new copy of the array, whose initial element start with the selected one.
-    copyArrayImg = paintingsImgs.slice(currentIndex - 1); // -1 because the imgs in the database start with 1, not 0
+    copyArrayImg = imgList.slice(currentIndex - 1); // -1 because the imgs in the database start with 1, not 0
 
     // Then push the elements that come before the selected one at the end of the new array
-    copyArrayImg.push(paintingsImgs.slice(0, currentIndex)[0]);
+    copyArrayImg.push(imgList.slice(0, currentIndex)[0]);
   }
 
   return (
@@ -30,13 +29,13 @@ function CarouselDarkVariant({ currentIndex }) {
             <Image
               priority={true}
               className=" " //width 75% to leave arrows outside img, margings to center img
-              src={img.src}
+              src={img.url}
               alt={img.alt}
               width={500}
               height={500}
             />
             <Carousel.Caption className="text-white font-semibold ">
-              <h5>{img.title}</h5>
+              <h5>{img.name}</h5>
               <p>{img.size}</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -47,4 +46,4 @@ function CarouselDarkVariant({ currentIndex }) {
   );
 }
 
-export default CarouselDarkVariant;
+export default Slider;

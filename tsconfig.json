@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/contactUs.jsx", "public/gallery/imglist.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/contactUs.jsx", "public/gallery/imglist.jsx", "src/app/components/Carousel.jsx"],
   "exclude": ["node_modules"]
 }

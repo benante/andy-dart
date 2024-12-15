@@ -30,7 +30,7 @@ const Gallery: React.FC<GalleryProps> = ({ imglist }) => {
         </div>
       ) : (
         <IndexContext.Provider value={{ setIndex }}>
-          <Slider currentIndex={index}></Slider>
+          <Slider currentIndex={index} imgList={imglist}></Slider>
         </IndexContext.Provider>
       )}
     </main>
