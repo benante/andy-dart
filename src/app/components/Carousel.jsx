@@ -1,8 +1,8 @@
 'use client';
-import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from 'next/image';
 import CloseBtn from './CloseBtn';
+import { roboto } from '../fonts';
 
 function Slider({ currentIndex, imgList }) {
   let copyArrayImg;
@@ -17,7 +17,7 @@ function Slider({ currentIndex, imgList }) {
   }
 
   return (
-    <div className="flex flex-col items-center gap-10 mx-2">
+    <div className="flex flex-col items-center mx-2">
       <Carousel
         indicators={false}
         slide={false}
@@ -28,16 +28,16 @@ function Slider({ currentIndex, imgList }) {
           <Carousel.Item key={i}>
             <Image
               priority={true}
-              className=" " //width 75% to leave arrows outside img, margings to center img
+              className="w-max" //width 75% to leave arrows outside img, margings to center img
               src={img.url}
               alt={img.alt}
               width={500}
               height={500}
             />
-            <Carousel.Caption className="text-white font-semibold ">
+            <div className={`py-2  text-gray-600 `}>
               <h5>{img.name}</h5>
               <p>{img.size}</p>
-            </Carousel.Caption>
+            </div>
           </Carousel.Item>
         ))}
       </Carousel>
