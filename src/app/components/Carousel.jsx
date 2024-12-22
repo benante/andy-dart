@@ -2,7 +2,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import Image from 'next/image';
 import CloseBtn from './CloseBtn';
-import { roboto } from '../fonts';
 
 function Slider({ currentIndex, imgList }) {
   let copyArrayImg;
