@@ -24,8 +24,8 @@ function Slider({ currentIndex, imgList }) {
         interval={null}
         data-bs-theme="dark"
       >
-        {copyArrayImg.map((img) => (
-          <Carousel.Item key={img.id}>
+        {copyArrayImg.map((img, i) => (
+          <Carousel.Item key={i}>
             <Image
               priority={true}
               className=" " //width 75% to leave arrows outside img, margings to center img
