@@ -34,7 +34,9 @@ function Slider({ currentIndex, imgList }) {
               height={500}
             />
             <Carousel.Caption></Carousel.Caption>
-            <div className={`py-2  text-gray-600 `}>
+            <div
+              className={`py-3 tracking-widest text-sm text-center mb-4 text-gray-600 `}
+            >
               <h5>{img.name}</h5>
               <p>{img.size}</p>
             </div>

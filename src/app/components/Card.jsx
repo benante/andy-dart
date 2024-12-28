@@ -5,10 +5,7 @@ import Image from 'next/image';
 const Card = ({ img, setIndex }) => {
   return (
     <>
-      <div
-        className=" mb-2 hover:cursor-zoom-in"
-        onClick={() => setIndex(img.id)}
-      >
+      <div className="hover:cursor-zoom-in" onClick={() => setIndex(img.id)}>
         <div className="min-w-full h-96 hover:shadow-slate-500 hover:shadow-lg rounded">
           <Image
             className="object-cover h-96"

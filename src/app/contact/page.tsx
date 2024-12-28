@@ -8,16 +8,16 @@ const Contact = () => {
   const [sendForm, setSendForm] = useState(false);
 
   return (
-    <main className="flex flex-wrap sm:justify-center items-end gap-4 p-2">
+    <main className="flex flex-wrap sm:justify-center items-end gap-4 p-2 ">
       <Image
-        src={'/contact.jpg'}
+        src={'/studio_1.jpg'}
         alt="contact image"
         priority={true}
-        width={800}
-        height={800}
+        width={600}
+        height={600}
         style={{ width: 'auto', height: 'auto' }} // to avoid next.js "Image with src  has either width or height modified, but not the other"
       ></Image>
-      <div className="min-w-80">
+      <div className="">
         <h2 className="font-semibold mb-2 ">Contact</h2>
         <p className="mb-4">
           For general enquiries, images of available works, and a price list

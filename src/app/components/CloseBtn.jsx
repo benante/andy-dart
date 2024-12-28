@@ -7,7 +7,7 @@ function CloseBtn() {
   return (
     <CloseButton
       aria-label="Hide"
-      className=" p-2.5  bg-slate-400 border-1 border-solid rounded-3xl"
+      className="p-2.5   rounded-full shadow-md transition-transform duration-300 border-solid  border-1 hover:scale-110"
       onClick={() => setIndex(null)}
     />
   );
