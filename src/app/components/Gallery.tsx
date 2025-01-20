@@ -19,7 +19,6 @@ type GalleryProps = {
 
 const Gallery: React.FC<GalleryProps> = ({ imglist }) => {
   const [index, setIndex] = useState<number | null>(null);
-
   return (
     <main className="grid justify-items-center">
       {index === null ? (
