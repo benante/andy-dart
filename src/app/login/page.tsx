@@ -1,31 +1,43 @@
 'use client';
 import { useRef, useState } from 'react';
-import { login, signup } from './actions';
+import { login } from './actions';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
+  const [validated, setValidated] = useState(false);
+
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setLoading(true);
 
     const formData = new FormData(formRef.current!);
+    const formElement = event.currentTarget;
 
-    try {
-      await login(formData);
-    } catch (error) {
-      console.error('Login failed:', error);
-    } finally {
-      setLoading(false);
+    if (formElement.checkValidity() === true) {
+      setLoading(true);
+      try {
+        await login(formData);
+      } catch (error) {
+        console.error('Login failed:', error);
+      } finally {
+        setLoading(false);
+      }
     }
+    formElement.reportValidity();
+    setValidated(true);
   };
 
   return (
     <main className="grid justify-items-center">
-      <Form ref={formRef} noValidate onSubmit={handleLogin}>
+      <Form
+        noValidate
+        validated={validated}
+        ref={formRef}
+        onSubmit={handleLogin}
+      >
         <Form.Group className="mb-3" controlId="validationName">
           <Form.Label>Email</Form.Label>
           <Form.Control

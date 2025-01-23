@@ -2,7 +2,6 @@
 import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 import emailjs from '@emailjs/browser';
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -17,6 +16,7 @@ function FormMessage({ setSendForm }) {
     const formElement = event.currentTarget;
 
     // If the form is not valid, stop submission
+    // Method of the HTMLSelectElement interface, checkValidity() returns true if the element's value has no validity problems; otherwise, returns false
     if (formElement.checkValidity() === false) {
       // event.stopPropagation() stops the event from bubbling up or propagating to parent elements. In a form, for example, this prevents any parent elements from handling the event.
       event.preventDefault();
@@ -33,7 +33,7 @@ function FormMessage({ setSendForm }) {
           process.env.NEXT_PUBLIC_PUBLIC_KEY // public key from EmailJS
         )
         // WHY KEYS ARE PUBLIC
-        // Indeed, someone could copy your keys (a well-known issue of any public API), but they will only be able to send your templates with your content, and they will not be able to send a custom email with their content (spam), which is not interesting for spammers. A better way to think of EmailJS in terms of security is not as a service that allows you to send emails from your code, but rather as a service that allows you to create a predefined set of emails via the dashboard, and then just trigger the emails from the code. This is quite similar to how emails are usually sent via a proprietary server code and how products like Intercom or customer.io are working.
+        // "Indeed, someone could copy your keys (a well-known issue of any public API), but they will only be able to send your templates with your content, and they will not be able to send a custom email with their content (spam), which is not interesting for spammers. A better way to think of EmailJS in terms of security is not as a service that allows you to send emails from your code, but rather as a service that allows you to create a predefined set of emails via the dashboard, and then just trigger the emails from the code. This is quite similar to how emails are usually sent via a proprietary server code and how products like Intercom or customer.io are working."
         .then(
           () => {
             console.log('Email successfully sent!');
@@ -48,6 +48,7 @@ function FormMessage({ setSendForm }) {
   };
 
   return (
+    // noValidate attribute is a boolean for HTML form elements which disables the browsers's default form validation, allowing devs to implement their own validation
     <Form ref={form} noValidate validated={validated} onSubmit={handleSubmit}>
       {/* name */}
       <Form.Group className="mb-3" controlId="validationCustom01">
