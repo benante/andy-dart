@@ -1,5 +1,5 @@
 import React from 'react';
-import { exhibitions } from '../../../public/exhibitions';
+import { exhibitions } from './exhibitions';
 import Image from 'next/image';
 
 const Exhibitions = () => {
