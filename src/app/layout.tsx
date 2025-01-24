@@ -14,6 +14,13 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'Andy Dart',
   description: 'Andy Dart`s official website',
+  // When you replace the default Next.js favicon with your custom one, browsers might still use the old cached favicon instead of the new one. Adding a ?v=1 query parameter signals to the browser that this is a "new version" of the file, so it will fetch the updated favicon instead of serving the cached one.
+  icons: {
+    icon: '/favicon.ico?v=1',
+    apple: '/apple-touch-icon.png?v=1',
+    shortcut: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
