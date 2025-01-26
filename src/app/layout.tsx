@@ -29,14 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="h-full" lang="en">
-      <body
-        className={`${montserrat.className} h-screen flex flex-col bg_main_color`}
-      >
-        <NavigationBar></NavigationBar>
-        {children}
-        <Footer></Footer>
-      </body>
+    <html lang="en">
+      <body className="bg_main_color">{children}</body>
     </html>
   );
 }

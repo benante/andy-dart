@@ -14,7 +14,7 @@ function NavigationBar() {
           ANDY DART
         </Navbar.Brand>
         <Navbar.Toggle style={noBorders} aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="grow-0" id="basic-navbar-nav">
+        <Navbar.Collapse className="navbar-centered" id="basic-navbar-nav">
           <Nav className="me-auto">
             {/* using LINK for client navigation / avoid loading again when link redirect to itself */}
             <Link href="/about" passHref legacyBehavior>

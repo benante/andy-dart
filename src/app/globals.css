@@ -42,4 +42,7 @@
   .centerOverride {
     justify-content: center !important;
   }
+  .navbar-centered {
+    flex-grow: 0 !important;
+  }
 }
