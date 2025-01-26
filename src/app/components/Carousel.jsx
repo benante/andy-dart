@@ -27,17 +27,17 @@ function Slider({ currentIndex, imgList }) {
           <Carousel.Item key={i}>
             <Image
               priority={true}
-              className="w-max" //width 75% to leave arrows outside img, margings to center img
+              //width 75% to leave arrows outside img, margings to center img
               src={img.url}
               alt={img.alt}
-              width={500}
-              height={500}
+              width={700}
+              height={700}
             />
             <Carousel.Caption></Carousel.Caption>
             <div
               className={`py-3 tracking-widest text-sm text-center mb-4 text-gray-600 `}
             >
-              <h5>{img.name}</h5>
+              <span className="text-lg mb-1 text-black">{img.name}</span>
               <p>{img.size}</p>
             </div>
           </Carousel.Item>

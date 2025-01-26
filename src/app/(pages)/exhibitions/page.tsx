@@ -1,0 +1,44 @@
+import React from 'react';
+import { exhibitions } from './exhibitions';
+import Image from 'next/image';
+
+const Exhibitions = () => {
+  const currentDate = new Date();
+
+  return (
+    <main className="flex flex-col-reverse m-2 lg:flex-row lg:justify-center ">
+      {/* grid mx-4 lg:grid-cols-2 lg:temp_2cols_70_30*/}
+      <div>
+        <Image
+          priority={true}
+          alt="exhibition image"
+          src={'/exhibition.jpg'}
+          width={1000}
+          height={1000}
+        ></Image>
+      </div>
+      <div className=" lg:ml-5">
+        {exhibitions.map((item) =>
+          currentDate.getTime() < item.date.getTime() ? (
+            <div key={item.venue} className="flex flex-col mb-4">
+              <span className="text-lg font-semibold">{item.venue}</span>
+              <span>{item.location}</span>
+              {/* Convert the Date object into a string */}
+              <span>{item.date.toDateString()}</span>
+            </div>
+          ) : (
+            <div key={item.venue} className="flex flex-col mb-4">
+              <span className="text-lg font-semibold">{item.venue}</span>
+              <span className="line-through">{item.location}</span>
+              {/* Convert the Date object into a string */}
+              <span className="line-through">{item.date.toDateString()}</span>
+            </div>
+          )
+        )}
+      </div>
+    </main>
+  );
+};
+
+export default Exhibitions;
+//

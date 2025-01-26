@@ -5,11 +5,9 @@ import CloseButton from 'react-bootstrap/CloseButton';
 function CloseBtn() {
   const { setIndex } = useContext(IndexContext);
   return (
-    <CloseButton
-      aria-label="Hide"
-      className="p-2.5   rounded-full shadow-md transition-transform duration-300 border-solid  border-1 hover:scale-110"
-      onClick={() => setIndex(null)}
-    />
+    <div className="p-2.5  rounded-full transition-transform duration-300 border-solid  border-1 hover:scale-110">
+      <CloseButton aria-label="Hide" onClick={() => setIndex(null)} />
+    </div>
   );
 }
 

@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
-import Footer from './components/Footer';
-import NavigationBar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Move this import here
 
 const montserrat = Montserrat({
@@ -30,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg_main_color">{children}</body>
+      <body className={`${montserrat.className} bg_main_color`}>
+        {children}
+      </body>
     </html>
   );
 }
