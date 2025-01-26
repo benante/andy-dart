@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import FormForMessage from '../../components/Form';
+import FormForMessage from '../../components/FormMessage';
 import Image from 'next/image';
 import { useState } from 'react';
 

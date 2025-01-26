@@ -1,8 +1,9 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
 import LogOutBtn from '../../components/LogOutBtn';
+import FormAdmin from '@/app/components/FormAdmin';
 
-export default async function PrivatePage() {
+export default async function AdminPage() {
   const supabase = await createClient();
 
   const { data, error } = await supabase.auth.getUser();
@@ -10,10 +11,15 @@ export default async function PrivatePage() {
     redirect('/login');
   }
 
+  const admin = data.user.user_metadata.full_name;
+
   return (
     <>
-      <p>Hello {data.user.email}</p>
-      <LogOutBtn></LogOutBtn>
+      <main className="grid bg-white py-5 justify-center">
+        <p>Hello {admin}</p>
+        <LogOutBtn></LogOutBtn>
+        <FormAdmin></FormAdmin>
+      </main>
     </>
   );
 }

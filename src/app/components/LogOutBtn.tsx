@@ -40,7 +40,7 @@ function LogOutBtn() {
   return (
     <Button
       className="max-w-fit"
-      variant="primary"
+      variant="outline-danger"
       disabled={isLoading}
       onClick={handleClick}
     >
