@@ -2,7 +2,7 @@ import { createClient } from "./client"
 
 const supabase = createClient()
 
-
+// STORAGE BUCKET
 export const uploadStorage = async (imgFile: File ) => {
     console.log("upload in progress....")
     const { data, error } = await supabase
@@ -31,5 +31,17 @@ export const retrieveUrl = async (imgName: string) => {
   return publicUrl
 }
 
+// ART_WORK
+// schema: name / size / url / alt
 
-// art_work schema: name / size / url / alt
+type PaintingData = {
+  name: string, size: string, url: string, alt: string 
+}
+
+export const uploadInfo = async ( paintingData: PaintingData ) => {
+  const { error } = await supabase
+  .from('art_work')
+  .insert({ name: `${paintingData.name}`, size: `${paintingData.size}`, url: `${paintingData.url}` , alt: `${paintingData.alt}` })
+  if(error) console.log(error)
+
+} 

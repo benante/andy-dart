@@ -2,34 +2,42 @@
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
 import { useState, useRef } from 'react';
 import Image from 'next/image';
-import { uploadStorage, retrieveUrl } from '@/utils/supabase/db';
+import { uploadStorage, retrieveUrl, uploadInfo } from '@/utils/supabase/db';
 
 function FormAdmin() {
   const form = useRef<HTMLFormElement>(null);
   const [imgUrl, setImgUrl] = useState<string>('');
   const [imgFile, setImgFile] = useState<File | null>(null);
+  const [uploaded, setUploaded] = useState<boolean>(false);
 
   const addPainting = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    await uploadStorage(imgFile!);
-    const url = await retrieveUrl(imgFile!.name);
-    // const data = new FormData(form.current!);
-    // const imgData = {
-    //   name: data.get('name') as string,
-    //   info: data.get('info') as string,
-    //   img: data.get('file') as string,
-    // };
+    try {
+      await uploadStorage(imgFile!);
+      const url = await retrieveUrl(imgFile!.name);
+      const data = new FormData(form.current!);
+      const imgData = {
+        name: data.get('name') as string,
+        size: data.get('size') as string,
+        alt: `${name} painting` as string,
+        url: url as string,
+      };
 
-    // console.log(imgFile);
-    // console.log(imgData.img);
+      uploadInfo(imgData);
+      setUploaded(true);
+    } catch {
+      console.log('Painting not uploaded');
+    }
   };
 
   const updateImgPreview = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
+    setUploaded(false);
     // event.preventDefault();
     const file = event.target.files![0];
     setImgFile(file);
@@ -41,7 +49,9 @@ function FormAdmin() {
 
   return (
     <div className="mt-8">
-      <p>Upload jpeg files only</p>
+      <p className="text-red-700 underline font-extrabold">
+        Upload jpeg files only
+      </p>
       <Form ref={form} onSubmit={addPainting}>
         <Form.Group className="mb-3" controlId="formPaintingName">
           <Form.Label>Painting name</Form.Label>
@@ -52,9 +62,14 @@ function FormAdmin() {
             placeholder="Enter painting name"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formPaintingInfo">
-          <Form.Label>Info</Form.Label>
-          <Form.Control required type="text" name="info" placeholder="Info" />
+        <Form.Group className="mb-3" controlId="formPaintingSize">
+          <Form.Label>Size</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            name="Size"
+            placeholder="Ex: 300 x 500cm"
+          />
         </Form.Group>
         {imgUrl && (
           <div>
@@ -75,14 +90,15 @@ function FormAdmin() {
             type="file"
           />
         </Form.Group>
-        <Button
-          className="bg-green-700"
-          variant="outline-primary"
-          type="submit"
-        >
+        <Button variant="outline-primary" type="submit">
           Upload
         </Button>
       </Form>
+      {uploaded && (
+        <Alert className="mt-8" variant="success">
+          The painting was successfully uploaded
+        </Alert>
+      )}
     </div>
   );
 }
