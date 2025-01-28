@@ -23,7 +23,7 @@ function FormAdmin() {
       const imgData = {
         name: data.get('name') as string,
         size: data.get('size') as string,
-        alt: `${name} painting` as string,
+        alt: `${ImageData.name}` as string,
         url: url as string,
       };
 
@@ -67,7 +67,7 @@ function FormAdmin() {
           <Form.Control
             required
             type="text"
-            name="Size"
+            name="size"
             placeholder="Ex: 300 x 500cm"
           />
         </Form.Group>

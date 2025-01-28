@@ -41,7 +41,7 @@ type PaintingData = {
 export const uploadInfo = async ( paintingData: PaintingData ) => {
   const { error } = await supabase
   .from('art_work')
-  .insert({ name: `${paintingData.name}`, size: `${paintingData.size}`, url: `${paintingData.url}` , alt: `${paintingData.alt}` })
+  .insert({ name: `${paintingData.name}`, size: `${paintingData.size}`, url: `${paintingData.url}` , alt: `${paintingData.name} painting` })
   if(error) console.log(error)
 
 } 
