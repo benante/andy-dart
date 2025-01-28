@@ -13,7 +13,5 @@ export default async function Art_work() {
       </p>
     );
 
-  console.log(art_work);
-
   return <Gallery imglist={art_work} />;
 }

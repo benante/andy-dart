@@ -19,12 +19,18 @@ type GalleryProps = {
 
 const Gallery: React.FC<GalleryProps> = ({ imglist }) => {
   const [index, setIndex] = useState<number | null>(null);
+  console.log(index);
   return (
     <main className="grid justify-items-center">
       {index === null ? (
         <div className="grid sm:w-11/12 lg:w-4/5 gap-2 mx-2 justify-items-center grid-cols-1 lg:px-4 md:grid-cols-2 lg:grid-cols-3 ">
-          {imglist.map((img) => (
-            <Card img={img} setIndex={setIndex} key={img.id}></Card>
+          {imglist.map((img, index) => (
+            <Card
+              img={img}
+              setIndex={setIndex}
+              index={index + 1}
+              key={img.id}
+            ></Card>
           ))}
         </div>
       ) : (
