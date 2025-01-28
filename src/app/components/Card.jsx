@@ -3,7 +3,6 @@ import React from 'react';
 import Image from 'next/image';
 
 const Card = ({ img, setIndex, index }) => {
-  // console.log(index);
   return (
     <>
       <div className="hover:cursor-zoom-in" onClick={() => setIndex(index)}>

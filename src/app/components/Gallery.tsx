@@ -28,6 +28,7 @@ const Gallery: React.FC<GalleryProps> = ({ imglist }) => {
             <Card
               img={img}
               setIndex={setIndex}
+              // index has to be referred to the array index and not to the img.ig as the table id is not gapless
               index={index + 1}
               key={img.id}
             ></Card>
