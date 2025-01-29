@@ -8,11 +8,13 @@ function Slider({ currentIndex, imgList }) {
   if (currentIndex === 0) {
     copyArrayImg = imgList;
   } else {
-    // create a new copy of the array, whose initial element start with the selected one.
-    copyArrayImg = imgList.slice(currentIndex - 1); // -1 because the imgs in the database start with 1, not 0
+    // create a new array which starts with the selected painting as first element.
+    let firstHalf = imgList.slice(currentIndex);
 
-    // Then push the elements that come before the selected one at the end of the new array
-    copyArrayImg.push(imgList.slice(0, currentIndex)[0]);
+    // then push the elements that precede the selected one at the end of that array
+    let secondHalf = imgList.slice(0, currentIndex);
+
+    copyArrayImg = [...firstHalf, ...secondHalf.flat()];
   }
 
   return (

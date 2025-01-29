@@ -19,7 +19,6 @@ type GalleryProps = {
 
 const Gallery: React.FC<GalleryProps> = ({ imglist }) => {
   const [index, setIndex] = useState<number | null>(null);
-  console.log(index);
   return (
     <main className="grid justify-items-center">
       {index === null ? (
@@ -29,7 +28,7 @@ const Gallery: React.FC<GalleryProps> = ({ imglist }) => {
               img={img}
               setIndex={setIndex}
               // index has to be referred to the array index and not to the img.ig as the table id is not gapless
-              index={index + 1}
+              index={index}
               key={img.id}
             ></Card>
           ))}
