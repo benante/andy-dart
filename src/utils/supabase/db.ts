@@ -31,6 +31,15 @@ export const retrieveUrl = async (imgName: string) => {
   return publicUrl
 }
 
+export const deleteBucketRow = async (painting_url: string) => {
+  const { data, error } = await supabase
+  .storage
+  .from('art_work_imgs')
+  .remove([`${painting_url}`])
+  if(error) console.log(error)
+
+}
+
 // ART_WORK
 // schema: name / size / url / alt
 
@@ -45,3 +54,10 @@ export const uploadInfo = async ( paintingData: PaintingData ) => {
   if(error) console.log(error)
 
 } 
+
+export const deleteInfo = async (id: string) => {
+  const response = await supabase
+  .from('art_work')
+  .delete()
+  .eq('id', id)
+}

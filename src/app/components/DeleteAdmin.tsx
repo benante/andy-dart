@@ -3,6 +3,7 @@ import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Image from 'next/image';
+import { deleteBucketRow, deleteInfo } from '@/utils/supabase/db';
 
 type Painting = {
   id: string;
@@ -14,6 +15,14 @@ type Painting = {
 
 type DivProps = {
   art_work: Painting[];
+};
+
+const deletePainting = (url: string, id: string) => {
+  console.log(`url is ${url}`);
+  console.log(`id is ${id}`);
+
+  deleteBucketRow(url);
+  // deleteInfo(id);
 };
 
 const DeleteDivAdmin: React.FC<DivProps> = ({ art_work }) => {
@@ -33,7 +42,12 @@ const DeleteDivAdmin: React.FC<DivProps> = ({ art_work }) => {
           ></Image>
           <span className="truncate-text">{painting.name}</span>
 
-          <Button variant="danger">Remove</Button>
+          <Button
+            variant="danger"
+            onClick={() => deletePainting(painting.url, painting.id)}
+          >
+            Remove
+          </Button>
         </ListGroup.Item>
       ))}
     </ListGroup>

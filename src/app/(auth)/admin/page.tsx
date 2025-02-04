@@ -18,11 +18,19 @@ export default async function AdminPage() {
 
   return (
     <>
-      <main className="grid bg-white py-5 justify-center">
-        <p>Hello {admin}</p>
-        <LogOutBtn></LogOutBtn>
-        <FormAdmin></FormAdmin>
-        <DeleteDivAdmin art_work={art_work}></DeleteDivAdmin>
+      <main className=" bg-white ">
+        <section>
+          <p>Hello {admin}</p>
+          <LogOutBtn></LogOutBtn>
+        </section>
+        <section className="p-2">
+          <h3>Upload</h3>
+          <FormAdmin></FormAdmin>
+        </section>
+        <section className="p-2">
+          <h3>Delete</h3>
+          <DeleteDivAdmin art_work={art_work}></DeleteDivAdmin>
+        </section>
       </main>
     </>
   );

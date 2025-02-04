@@ -13,7 +13,7 @@ function FormAdmin() {
   const [imgFile, setImgFile] = useState<File | null>(null);
   const [uploaded, setUploaded] = useState<boolean>(false);
 
-  const addPainting = async (event: React.FormEvent<HTMLFormElement>) => {
+  const uploadPainting = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
@@ -52,7 +52,7 @@ function FormAdmin() {
       <p className="text-red-700 underline font-extrabold">
         Upload jpeg files only
       </p>
-      <Form ref={form} onSubmit={addPainting}>
+      <Form ref={form} onSubmit={uploadPainting}>
         <Form.Group className="mb-3" controlId="formPaintingName">
           <Form.Label>Painting name</Form.Label>
           <Form.Control
