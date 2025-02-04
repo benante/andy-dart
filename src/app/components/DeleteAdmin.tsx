@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Image from 'next/image';
 
 type Painting = {
   id: string;
@@ -20,11 +20,19 @@ const DeleteDivAdmin: React.FC<DivProps> = ({ art_work }) => {
   return (
     <ListGroup>
       {art_work.map((painting) => (
-        <ListGroup.Item key={painting.id}>
-          <Card style={{ width: 50 }}>
-            <Card.Img src={painting.url} />
-            <Card.Title>{painting.name}</Card.Title>
-          </Card>
+        <ListGroup.Item
+          key={painting.id}
+          className="flex-override items-center justify-between "
+        >
+          <Image
+            src={painting.url}
+            width={50}
+            height={50}
+            alt={painting.alt}
+            priority={true}
+          ></Image>
+          <span className="truncate-text">{painting.name}</span>
+
           <Button variant="danger">Remove</Button>
         </ListGroup.Item>
       ))}
