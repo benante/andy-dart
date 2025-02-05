@@ -20,7 +20,6 @@ export async function login(formData: FormData) {
   if (error) {
     redirect('/error')
   }
-  console.log(data)
   revalidatePath('/', 'layout')
   redirect('/admin')
 }

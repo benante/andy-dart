@@ -11,18 +11,16 @@ type Painting = {
   alt: string;
   name: string;
   size: string;
+  imgFileName: string;
 };
 
 type DivProps = {
   art_work: Painting[];
 };
 
-const deletePainting = (url: string, id: string) => {
-  console.log(`url is ${url}`);
-  console.log(`id is ${id}`);
-
-  deleteBucketRow(url);
-  // deleteInfo(id);
+const deletePainting = (imgFileName: string, id: string) => {
+  deleteBucketRow(imgFileName);
+  deleteInfo(id);
 };
 
 const DeleteDivAdmin: React.FC<DivProps> = ({ art_work }) => {
@@ -41,10 +39,9 @@ const DeleteDivAdmin: React.FC<DivProps> = ({ art_work }) => {
             priority={true}
           ></Image>
           <span className="truncate-text">{painting.name}</span>
-
           <Button
             variant="danger"
-            onClick={() => deletePainting(painting.url, painting.id)}
+            onClick={() => deletePainting(painting.imgFileName, painting.id)}
           >
             Remove
           </Button>

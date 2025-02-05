@@ -15,6 +15,7 @@ export default async function AdminPage() {
 
   const { data: art_work } = await supabase.from('art_work').select();
   if (!art_work) return <p>Cards preview not retrieved</p>;
+  console.log(art_work);
 
   return (
     <>

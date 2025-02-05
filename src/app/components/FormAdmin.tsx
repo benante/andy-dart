@@ -25,6 +25,7 @@ function FormAdmin() {
         size: data.get('size') as string,
         alt: `${ImageData.name}` as string,
         url: url as string,
+        imgFileName: imgFile!.name as string,
       };
 
       uploadInfo(imgData);
@@ -41,10 +42,8 @@ function FormAdmin() {
     // event.preventDefault();
     const file = event.target.files![0];
     setImgFile(file);
-    // console.log(file);
     const fileUrl = URL.createObjectURL(file);
     setImgUrl(fileUrl);
-    // console.log(fileUrl);
   };
 
   return (

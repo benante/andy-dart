@@ -31,12 +31,16 @@ export const retrieveUrl = async (imgName: string) => {
   return publicUrl
 }
 
-export const deleteBucketRow = async (painting_url: string) => {
+export const deleteBucketRow = async (filePath: string) => {
   const { data, error } = await supabase
   .storage
   .from('art_work_imgs')
-  .remove([`${painting_url}`])
-  if(error) console.log(error)
+  .remove([filePath])
+  if (error) {
+    console.error("Error deleting file:", error.message);
+  } else {
+    console.log("Delete file:", data);
+  }
 
 }
 
@@ -44,13 +48,13 @@ export const deleteBucketRow = async (painting_url: string) => {
 // schema: name / size / url / alt
 
 type PaintingData = {
-  name: string, size: string, url: string, alt: string 
+  name: string, size: string, url: string, alt: string , imgFileName: string
 }
 
 export const uploadInfo = async ( paintingData: PaintingData ) => {
   const { error } = await supabase
   .from('art_work')
-  .insert({ name: `${paintingData.name}`, size: `${paintingData.size}`, url: `${paintingData.url}` , alt: `${paintingData.name} painting` })
+  .insert({ name: `${paintingData.name}`, size: `${paintingData.size}`, url: `${paintingData.url}` , alt: `${paintingData.name} painting`, imgFileName: `${paintingData.imgFileName}` })
   if(error) console.log(error)
 
 } 
