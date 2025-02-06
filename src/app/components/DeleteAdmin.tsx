@@ -20,29 +20,26 @@ type DivProps = {
 };
 
 const DeleteDivAdmin: React.FC<DivProps> = ({ art_work }) => {
-  {
-    /* Giving the showAlert variable only a boolean value would make all the alerts triggered/displayed as soon as a single element gets clicked.
-    Instead of creating a component (to be added inside the ListGroup.Item)
-    that would handle the state, here I create an object of arrays, which first element is the id and gets a boolean assigned.
-    Later in the JSX code if the element(painting)'s id is true the alert gets displayed, otherwise it doesn' t.
-    If an alert is open but another item element btn gets clicked, a new object array is created, causing the first alert to disappear  */
-  }
-  const [showAlert, setShowAlert] = useState<{ [id: string]: boolean }>({});
+  // Associate the alert with painting id. If not null alert will be displayed on that specific item only
+  const [showAlert, setShowAlert] = useState<string>('');
+  const [paintings, setPaintings] = useState<Painting[]>([...art_work]);
+  console.log(paintings);
 
   const deletePainting = (imgFileName: string, id: string) => {
     deleteBucketRow(imgFileName);
     deleteInfo(id);
-    setShowAlert({ [id]: false });
+    setShowAlert('');
+    setPaintings(paintings.filter((item) => item.id !== id));
   };
 
   return (
     <ListGroup>
-      {art_work.map((painting) => (
+      {paintings.map((painting) => (
         <ListGroup.Item
           key={painting.id}
           className="flex-override items-center justify-between "
         >
-          {showAlert[painting.id] ? (
+          {showAlert === painting.id ? (
             <Alert className="grow " show={true} variant="warning">
               <p>Are you sure you want to remove this item?</p>
               <Button
@@ -56,7 +53,7 @@ const DeleteDivAdmin: React.FC<DivProps> = ({ art_work }) => {
               </Button>
               <Button
                 variant="outline-primary"
-                onClick={() => setShowAlert({ [painting.id]: false })}
+                onClick={() => setShowAlert('')}
               >
                 No
               </Button>
@@ -73,7 +70,7 @@ const DeleteDivAdmin: React.FC<DivProps> = ({ art_work }) => {
               <span className="truncate-text">{painting.name}</span>
               <Button
                 variant="outline-danger"
-                onClick={() => setShowAlert({ [painting.id]: true })}
+                onClick={() => setShowAlert(painting.id)}
               >
                 Remove
               </Button>
