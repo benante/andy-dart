@@ -48,6 +48,7 @@ function FormAdmin() {
 
   return (
     <div className="mt-8">
+      <h3>Upload</h3>
       <p className="text-red-700 underline font-extrabold">
         Upload jpeg files only
       </p>
@@ -63,12 +64,7 @@ function FormAdmin() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPaintingSize">
           <Form.Label>Size</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            name="size"
-            placeholder="Ex: 300 x 500cm"
-          />
+          <Form.Control type="text" name="size" placeholder="Ex: 300 x 500cm" />
         </Form.Group>
         {imgUrl && (
           <div>

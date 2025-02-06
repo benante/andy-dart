@@ -33,52 +33,56 @@ const DeleteDivAdmin: React.FC<DivProps> = ({ art_work }) => {
   };
 
   return (
-    <ListGroup>
-      {paintings.map((painting) => (
-        <ListGroup.Item
-          key={painting.id}
-          className="flex-override items-center justify-between "
-        >
-          {showAlert === painting.id ? (
-            <Alert className="grow " show={true} variant="warning">
-              <p>Are you sure you want to remove this item?</p>
-              <Button
-                className="mr-2"
-                variant="outline-danger"
-                onClick={() =>
-                  deletePainting(painting.imgFileName, painting.id)
-                }
-              >
-                Yes
-              </Button>
-              <Button
-                variant="outline-primary"
-                onClick={() => setShowAlert('')}
-              >
-                No
-              </Button>
-            </Alert>
-          ) : (
-            <>
-              <Image
-                src={painting.url}
-                width={50}
-                height={50}
-                alt={painting.alt}
-                priority={true}
-              ></Image>
-              <span className="truncate-text">{painting.name}</span>
-              <Button
-                variant="outline-danger"
-                onClick={() => setShowAlert(painting.id)}
-              >
-                Remove
-              </Button>
-            </>
-          )}
-        </ListGroup.Item>
-      ))}
-    </ListGroup>
+    <div className="mt-8">
+      <h3>Delete</h3>
+
+      <ListGroup>
+        {paintings.map((painting) => (
+          <ListGroup.Item
+            key={painting.id}
+            className="flex-override items-center justify-between "
+          >
+            {showAlert === painting.id ? (
+              <Alert className="grow " show={true} variant="warning">
+                <p>Are you sure you want to remove this item?</p>
+                <Button
+                  className="mr-2"
+                  variant="outline-danger"
+                  onClick={() =>
+                    deletePainting(painting.imgFileName, painting.id)
+                  }
+                >
+                  Yes
+                </Button>
+                <Button
+                  variant="outline-primary"
+                  onClick={() => setShowAlert('')}
+                >
+                  No
+                </Button>
+              </Alert>
+            ) : (
+              <>
+                <Image
+                  src={painting.url}
+                  width={50}
+                  height={50}
+                  alt={painting.alt}
+                  priority={true}
+                ></Image>
+                <span className="truncate-text">{painting.name}</span>
+                <Button
+                  variant="outline-danger"
+                  onClick={() => setShowAlert(painting.id)}
+                >
+                  Remove
+                </Button>
+              </>
+            )}
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
+    </div>
   );
 };
 

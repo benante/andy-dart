@@ -19,17 +19,16 @@ export default async function AdminPage() {
 
   return (
     <>
-      <main className=" bg-white ">
-        <section>
-          <p>Hello {admin}</p>
-          <LogOutBtn></LogOutBtn>
-        </section>
-        <section className="p-2">
-          <h3>Upload</h3>
+      <main className=" bg-white p-4 lg:grid grid-cols-2  gap-6 h-screen">
+        <section className="flex flex-col-reverse justify-between lg:flex-col">
           <FormAdmin></FormAdmin>
+          <div className="mt-8">
+            <h3>Log out</h3>
+            <p>Hello {admin}</p>
+            <LogOutBtn></LogOutBtn>
+          </div>
         </section>
-        <section className="p-2">
-          <h3>Delete</h3>
+        <section className="">
           <DeleteDivAdmin art_work={art_work}></DeleteDivAdmin>
         </section>
       </main>
